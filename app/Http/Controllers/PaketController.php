@@ -107,6 +107,8 @@ class PaketController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $validatedData = Paket::find($id);
+        $validatedData->delete();
+        return redirect('/paket');
     }
 }
