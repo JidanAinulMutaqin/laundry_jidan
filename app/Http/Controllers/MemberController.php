@@ -99,8 +99,10 @@ class MemberController extends Controller
      * @param  \App\Models\Member  $member
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Member $member)
+    public function destroy($id)
     {
-        //
+        $validatedData = Member::find($id);
+        $validatedData->delete();
+        return redirect('/member');
     }
 }
