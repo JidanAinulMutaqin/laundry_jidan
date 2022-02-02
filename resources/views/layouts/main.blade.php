@@ -24,6 +24,7 @@
   </title>
   {{-- Bootstrap --}}
   <link rel="stylesheet" href="{{ asset('assets') }}/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
   <!-- Favicon -->
   <link href="{{ asset('assets') }}/img/brand/logojidan.jpg" rel="icon" type="image/png">
   <!-- Fonts -->

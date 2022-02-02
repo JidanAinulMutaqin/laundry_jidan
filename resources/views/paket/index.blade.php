@@ -46,6 +46,14 @@
                     <td>{{ $p->jenis }}</td>
                     <td>{{ $p->nama_paket }}</td>
                     <td>{{ $p->harga }}</td>
+                    <td>
+                        @include('paket.edit')
+                         <form action="{{ url('paket/'.$p->id) }}" method="post" class="d-inline">
+                            @csrf
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')"><i class="ni ni-fat-remove"></i></button>
+                        </form>
+                    </td>
                 </tr>
              @endforeach
             </tbody>
