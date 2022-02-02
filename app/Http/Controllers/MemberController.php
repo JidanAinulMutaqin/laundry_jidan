@@ -68,7 +68,7 @@ class MemberController extends Controller
      */
     public function edit(Member $member)
     {
-        //
+        return view('member.edit');
     }
 
     /**
@@ -80,7 +80,17 @@ class MemberController extends Controller
      */
     public function update(Request $request, Member $member)
     {
-        //
+        $validatedData = $request->validate([
+            'nama' => 'required',
+            'alamat' => 'required',
+            'jenis_kelamin' => 'required',
+            'telepon' => 'required'
+        ]);
+
+        Member::where('id', $member->id)
+            ->update($validatedData);
+
+        return redirect('/member')->with('success', 'New Data has been added!');
     }
 
     /**

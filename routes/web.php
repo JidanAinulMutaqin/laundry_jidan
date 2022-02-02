@@ -22,4 +22,4 @@ Route::get('/', function () {
 
 Route::resource('/outlet', OutletController::class);
 Route::resource('/paket', PaketController::class);
-Route::resource('/membert', MemberController::class);
+Route::resource('/member', MemberController::class);
