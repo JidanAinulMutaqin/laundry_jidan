@@ -65,9 +65,11 @@ class OutletController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(outlet $outlet)
     {
-        //
+        return view('outlet.edit',[
+            'outlet' => $outlet
+        ]);
     }
 
     /**
@@ -77,9 +79,18 @@ class OutletController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, outlet $outlet)
     {
-        //
+        $validatedData = $request->validate([
+            'nama_outlet' => 'required',
+            'alamat' => 'required',
+            'telepon' => 'required'
+        ]);
+
+        Outlet::where('id', $outlet->id)
+            ->update($validatedData);
+
+        return redirect('/outlet')->with('success', 'New Data has been added!');
     }
 
     /**

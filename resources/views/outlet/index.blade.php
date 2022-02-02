@@ -44,6 +44,14 @@
                     <td>{{ $o->nama_outlet }}</td>
                     <td>{{ $o->alamat }}</td>
                     <td>{{ $o->telepon }}</td>
+                    <td>
+                        @include('outlet.edit')
+                         <form action="{{ url('outlet/'.$o->id) }}" method="post" class="d-inline">
+                            @csrf
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')"><i class="ni ni-fat-remove"></i></button>
+                        </form>
+                    </td>
                 </tr>
              @endforeach
             </tbody>
