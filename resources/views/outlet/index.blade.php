@@ -19,6 +19,12 @@
     </div>
 </div>
 
+@if (session()->has('success'))
+    <div class="alert alert-success col-lg-12 text-center" role="alert">
+        {{ session('success') }}
+    </div>
+@endif
+
 <!-- Table -->
 <div class="row">
     <div class="col">

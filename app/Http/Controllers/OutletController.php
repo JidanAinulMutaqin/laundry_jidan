@@ -90,7 +90,7 @@ class OutletController extends Controller
         Outlet::where('id', $outlet->id)
             ->update($validatedData);
 
-        return redirect('/outlet')->with('success', 'New Data has been added!');
+        return redirect('/outlet')->with('success', 'Data has been edited!');
     }
 
     /**
@@ -101,6 +101,8 @@ class OutletController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $validatedData = Outlet::find($id);
+        $validatedData->delete();
+        return redirect('/outlet');
     }
 }
