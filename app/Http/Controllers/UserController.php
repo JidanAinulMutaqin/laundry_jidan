@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Outlet;
 use Illuminate\Http\Request;
 
-class OutletController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,9 @@ class OutletController extends Controller
      */
     public function index()
     {
-        return view('outlet.index', [
-            'outlet' => outlet::all()
+        return view('user.index',[
+            'user' => User::all(),
+            'outlet' => Outlet::all()
         ]);
     }
 
@@ -26,7 +28,9 @@ class OutletController extends Controller
      */
     public function create()
     {
-        return view('outlet.create');
+        return view('user.create',[
+            'outlet' => Outlet::all()
+        ]);
     }
 
     /**
@@ -38,14 +42,17 @@ class OutletController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'nama_outlet' => 'required',
-            'alamat' => 'required',
-            'telepon' => 'required'
+            'name' => 'required',
+            'username' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'id_outlet' => 'required',
+            'role' => 'required'
         ]);
 
-        Outlet::create($validatedData);
+        User::create($validatedData);
 
-        return redirect(request()->segment(1).'/outlet')->with('success', 'New Data has been added!');
+        return redirect(request()->segment(1).'/user')->with('success', 'New Data has been added!');
     }
 
     /**
@@ -65,11 +72,9 @@ class OutletController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(outlet $outlet)
+    public function edit(User $user)
     {
-        return view('outlet.edit',[
-            'outlet' => $outlet
-        ]);
+        return view('user.edit');
     }
 
     /**
@@ -79,18 +84,20 @@ class OutletController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, outlet $outlet)
+    public function update(Request $request, User $user)
     {
         $validatedData = $request->validate([
-            'nama_outlet' => 'required',
-            'alamat' => 'required',
-            'telepon' => 'required'
+            'name' => 'required',
+            'username' => 'required',
+            'email' => 'required',
+            'id_outlet' => 'required',
+            'role' => 'required'
         ]);
 
-        Outlet::where('id', $outlet->id)
+        User::where('id', $user->id)
             ->update($validatedData);
 
-        return redirect(request()->segment(1).'/outlet')->with('success', 'Data has been edited!');
+        return redirect(request()->segment(1).'/user')->with('success', 'Data has been updated!');
     }
 
     /**
@@ -101,8 +108,8 @@ class OutletController extends Controller
      */
     public function destroy($id)
     {
-        $validatedData = Outlet::find($id);
+        $validatedData = User::find($id);
         $validatedData->delete();
-        return redirect(request()->segment(1).'/outlet');
+        return redirect(request()->segment(1).'/user');
     }
 }

@@ -95,23 +95,13 @@
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link {{ Request::is('outlet') ? 'active' : '' }} " href="/outlet">
-              <i class="ni ni-bag-17 text-success"></i> Outlet
+            <a class="nav-link {{ Request::is('transaksi') ? 'active' : '' }} " href="/transaksi">
+              <i class="ni ni-bag-17 text-success"></i> Transaksi
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link {{ Request::is('paket') ? 'active' : '' }} " href="/paket">
-              <i class="ni ni-app text-danger"></i> Paket
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link {{ Request::is('member') ? 'active' : '' }} " href="/member">
-              <i class="ni ni-circle-08 text-warning"></i> Member
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link {{ Request::is('user') ? 'active' : '' }} " href="/user">
-              <i class="ni ni-single-02 text-primary"></i> User
+            <a class="nav-link {{ Request::is('laporan') ? 'active' : '' }} " href="/laporan">
+              <i class="ni ni-app text-danger"></i> Laporan
             </a>
           </li>
         </ul>

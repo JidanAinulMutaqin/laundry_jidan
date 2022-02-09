@@ -7,7 +7,7 @@
           <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <form action="/paket" method="POST" class="mb-5">
+            <form action="paket" method="POST" class="mb-5">
                 @csrf
                 <div class="mb-3">
                   <label for="id_outlet" class="form-label">Outlet</label>

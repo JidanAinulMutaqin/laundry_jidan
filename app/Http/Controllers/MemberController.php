@@ -46,7 +46,7 @@ class MemberController extends Controller
 
         Member::create($validatedData);
 
-        return redirect('/member')->with('success', 'New Data has been added!');
+        return redirect(request()->segment(1).'/member')->with('success', 'New Data has been added!');
     }
 
     /**
@@ -90,7 +90,7 @@ class MemberController extends Controller
         Member::where('id', $member->id)
             ->update($validatedData);
 
-        return redirect('/member')->with('success', 'New Data has been added!');
+        return redirect(request()->segment(1).'/member')->with('success', 'New Data has been added!');
     }
 
     /**
@@ -103,6 +103,6 @@ class MemberController extends Controller
     {
         $validatedData = Member::find($id);
         $validatedData->delete();
-        return redirect('/member');
+        return redirect(request()->segment(1).'/member');
     }
 }

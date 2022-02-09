@@ -50,7 +50,7 @@ class PaketController extends Controller
 
         Paket::create($validatedData);
 
-        return redirect('/paket')->with('success', 'New Data has been added!');
+        return redirect(request()->segment(1).'/paket')->with('success', 'New Data has been added!');
     }
 
     /**
@@ -96,7 +96,7 @@ class PaketController extends Controller
         Paket::where('id', $paket->id)
             ->update($validatedData);
 
-        return redirect('/paket')->with('success', 'New Data has been added!');
+        return redirect(request()->segment(1).'/paket')->with('success', 'Data has been edited!');
     }
 
     /**
@@ -109,6 +109,6 @@ class PaketController extends Controller
     {
         $validatedData = Paket::find($id);
         $validatedData->delete();
-        return redirect('/paket');
+        return redirect(request()->segment(1).'/paket');
     }
 }

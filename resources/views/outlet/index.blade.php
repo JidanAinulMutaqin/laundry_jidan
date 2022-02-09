@@ -20,7 +20,7 @@
 </div>
 
 @if (session()->has('success'))
-    <div class="alert alert-success col-lg-12 text-center" role="alert">
+    <div class="alert alert-success col-lg-12 text-center" id="succes-alert" role="alert">
         {{ session('success') }}
     </div>
 @endif
@@ -52,7 +52,7 @@
                     <td>{{ $o->telepon }}</td>
                     <td>
                         @include('outlet.edit')
-                         <form action="{{ url('outlet/'.$o->id) }}" method="post" class="d-inline">
+                         <form action="/{{ request()->segment(1)}}/outlet/{{ $o->id }}" method="post" class="d-inline">
                             @csrf
                             <input type="hidden" name="_method" value="DELETE">
                             <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')"><i class="ni ni-fat-remove"></i></button>

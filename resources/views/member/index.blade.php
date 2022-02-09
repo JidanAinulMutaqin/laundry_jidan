@@ -19,6 +19,12 @@
     </div>
 </div>
 
+@if (session()->has('success'))
+    <div class="alert alert-success col-lg-12 text-center" id="succes-alert" role="alert">
+        {{ session('success') }}
+    </div>
+@endif
+
 <!-- Table -->
 <div class="row">
     <div class="col">
@@ -48,7 +54,7 @@
                     <td>{{ $m->telepon }}</td>
                     <td>
                         @include('member.edit')
-                         <form action="{{ url('member/'.$m->id) }}" method="post" class="d-inline">
+                         <form action="/{{ request()->segment(1)}}/member/{{ $m->id }}" method="post" class="d-inline">
                             @csrf
                             <input type="hidden" name="_method" value="DELETE">
                             <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')"><i class="ni ni-fat-remove"></i></button>

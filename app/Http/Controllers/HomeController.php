@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Outlet;
 use Illuminate\Http\Request;
 
-class OutletController extends Controller
+class HomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +13,7 @@ class OutletController extends Controller
      */
     public function index()
     {
-        return view('outlet.index', [
-            'outlet' => outlet::all()
-        ]);
+        return view('index');
     }
 
     /**
@@ -26,7 +23,7 @@ class OutletController extends Controller
      */
     public function create()
     {
-        return view('outlet.create');
+        //
     }
 
     /**
@@ -37,15 +34,7 @@ class OutletController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'nama_outlet' => 'required',
-            'alamat' => 'required',
-            'telepon' => 'required'
-        ]);
-
-        Outlet::create($validatedData);
-
-        return redirect(request()->segment(1).'/outlet')->with('success', 'New Data has been added!');
+        //
     }
 
     /**
@@ -65,11 +54,9 @@ class OutletController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(outlet $outlet)
+    public function edit($id)
     {
-        return view('outlet.edit',[
-            'outlet' => $outlet
-        ]);
+        //
     }
 
     /**
@@ -79,18 +66,9 @@ class OutletController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, outlet $outlet)
+    public function update(Request $request, $id)
     {
-        $validatedData = $request->validate([
-            'nama_outlet' => 'required',
-            'alamat' => 'required',
-            'telepon' => 'required'
-        ]);
-
-        Outlet::where('id', $outlet->id)
-            ->update($validatedData);
-
-        return redirect(request()->segment(1).'/outlet')->with('success', 'Data has been edited!');
+        //
     }
 
     /**
@@ -101,8 +79,6 @@ class OutletController extends Controller
      */
     public function destroy($id)
     {
-        $validatedData = Outlet::find($id);
-        $validatedData->delete();
-        return redirect(request()->segment(1).'/outlet');
+        //
     }
 }

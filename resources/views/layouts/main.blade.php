@@ -37,7 +37,13 @@
 </head>
 
 <body class="">
-  @include('partials.sidebar')
+    @if(auth()->user()->role == 'admin')
+        @include('partials.sidebar-admin')
+    @elseif(auth()->user()->role == 'kasir')
+        @include('partials.sidebar-kasir')
+    @elseif(auth()->user()->role == 'owner')
+        @include('partials.sidebar-owner')
+    @endif
 
   <div class="main-content">
     <!-- Navbar -->
@@ -83,6 +89,13 @@
         application: "argon-dashboard-free"
       });
 
+  </script>
+  <script>
+      $(function(){
+          $('#succes-alert').fadeTo(2000,500).slideUp(500,function(){
+              $('#succes->alert').slideUp(500)
+          });
+      })
   </script>
 
  @stack('script')

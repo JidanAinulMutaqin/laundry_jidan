@@ -12,7 +12,7 @@
              <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-            <form action="{{ url('paket/' .$p->id) }}" method="POST" class="text-dark">
+            <form action="/{{ request()->segment(1)}}/paket/{{ $p->id }}" method="POST" class="text-dark">
                 @method('PUT')
              @csrf
              <div class="mb-3">

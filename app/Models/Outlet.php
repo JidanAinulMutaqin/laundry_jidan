@@ -18,4 +18,10 @@ class Outlet extends Model
     {
         return $this->hasMany(Paket::class);
     }
+
+    public function Outlet()
+    {
+        return $this->hasMany(Outlet::class);
+    }
+
 }
