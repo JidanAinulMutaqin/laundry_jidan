@@ -47,8 +47,8 @@
             <tbody>
              @foreach ($paket as $p)
                 <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $p->id_outlet }}</td>
+                    <td>{{ $i=(isset($i)?++$i:$i=1) }}</td>
+                    <td>{{ $p->outlet->nama_outlet }}</td>
                     <td>{{ $p->jenis }}</td>
                     <td>{{ $p->nama_paket }}</td>
                     <td>{{ $p->harga }}</td>
@@ -67,7 +67,7 @@
         </div>
       </div>
     </div>
-  </div>
+</div>
 
 @push('script')
 

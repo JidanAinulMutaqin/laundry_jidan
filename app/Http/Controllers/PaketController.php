@@ -15,10 +15,9 @@ class PaketController extends Controller
      */
     public function index()
     {
-        return view('paket.index',[
-            'paket' => Paket::all(),
-            'outlet' => Outlet::all()
-        ]);
+        $data['paket'] = Paket::all();
+        $outlet['outlet'] = Outlet::all();
+        return view('paket.index', $data, $outlet);
     }
 
     /**
@@ -28,9 +27,7 @@ class PaketController extends Controller
      */
     public function create()
     {
-        return view('paket.create',[
-            'outlet' => Outlet::all()
-        ]);
+        //
     }
 
     /**
@@ -41,14 +38,14 @@ class PaketController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
+        $validate = $request->validate([
             'id_outlet' => 'required',
             'jenis' => 'required',
             'nama_paket' => 'required',
             'harga' => 'required'
         ]);
 
-        Paket::create($validatedData);
+        Paket::create($validate);
 
         return redirect(request()->segment(1).'/paket')->with('success', 'New Data has been added!');
     }

@@ -96,7 +96,7 @@
           </li>
           <li class="nav-item ">
             <a class="nav-link {{ Request::is('outlet') ? 'active' : '' }} " href="outlet">
-              <i class="ni ni-bag-17 text-success"></i> Outlet
+              <i class="ni ni-building text-success"></i> Outlet
             </a>
           </li>
           <li class="nav-item ">
@@ -112,6 +112,11 @@
           <li class="nav-item ">
             <a class="nav-link {{ Request::is('user') ? 'active' : '' }} " href="user">
               <i class="ni ni-single-02 text-primary"></i> User
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link {{ Request::is('transaksi') ? 'active' : '' }} " href="transaksi">
+              <i class="ni ni-money-coins text-warning"></i> Transaksi
             </a>
           </li>
         </ul>

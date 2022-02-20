@@ -7,6 +7,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PaketController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\OutletController;
+use App\Http\Controllers\TransaksiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,12 +38,14 @@ Route::group(['prefix' => 'a', 'middleware' => ['isAdmin','auth']],function(){
     Route::resource('paket', PaketController::class);
     Route::resource('member', MemberController::class);
     Route::resource('user', UserController::class);
+    Route::resource('transaksi', TransaksiController::class);
 });
 
 Route::group(['prefix' => 'k', 'middleware' => ['isKasir','auth']],function(){
     Route::get('dashboard', [HomeController::class, 'index'])->name('k.dashboard');
     Route::resource('paket', PaketController::class);
     Route::resource('member', MemberController::class);
+    Route::resource('transaksi', TransaksiController::class);
 });
 
 Route::group(['prefix' => 'o', 'middleware' => ['isAdmin','auth']],function(){
