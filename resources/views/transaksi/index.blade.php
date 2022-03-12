@@ -116,12 +116,14 @@ function pilihPaket(x){
     data += `<td><label name="sub_total[]" class="subTotal">${harga}</label></td>`;
     data += `<td><button type="button" class="btnRemovePaket badge badge-danger border-0">Hapus</button></td>`;
     data += '<tr>';
+
     if(tbody == 'Belum ada data') $('#tblTransaksi tbody tr').remove();
     $('#tblTransaksi tbody').append(data);
+
     subtotal += Number(harga)
     total = subtotal - Number($('#diskon').val()) + Number($('#pajak-persen').val())
-    $('#subtotal').text(subtotal)
-    $('#total').text(total)
+    $('#subtotal').val(subtotal)
+    $('#total').val(total)
 
   }
 //
@@ -137,8 +139,8 @@ function hitungTotalAkhir(a){
   total = subtotal - Number($('#diskon').val()) + Number($('#biaya_tambahan').val()) + pajak;
   $(a).closest('tr').find('.subTotal').text(count)
 //   $('#pajak-harga').text(pajak)
-  $('#subtotal').text(subtotal)
-  $('#total').text(total)
+  $('#subtotal').val(subtotal)
+  $('#total').val(total)
 }
 //
 
@@ -155,8 +157,8 @@ $('#formTransaksi').on('click','.btnRemovePaket', function(){
         total -= subTotalAwal;
 
         $currentRow = $(this).closest('tr').remove();
-        $('#subtotal').text(subtotal);
-        $('#total').text(total)
+        $('#subtotal').val(subtotal);
+        $('#total').val(total)
     });
 //
 </script>

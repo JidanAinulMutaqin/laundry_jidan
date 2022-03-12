@@ -94,7 +94,7 @@
                         <tfoot>
                             <tr valign="bottom">
                                 <td width="" colspan="3" align="right">Jumlah Bayar</td>
-                                <td><span id="subtotal">0</span></td>
+                                <td><input type="text" name="subtotal" id="subtotal" placeholder="0" readonly></td>
                                 <td rowspan="4">
                                     <label for="">Pembayaran</label>
                                     <input type="text" class="form-control" name="bayar" id="bayar" style="width:170px" value="0">
@@ -114,7 +114,7 @@
                             </tr>
                             <tr style="background:RoyalBlue;color:whitesmoke;font-weight:bold;font-size:1em">
                                 <td colspan="3" align="right">Total Bayar Akhir</td>
-                                <td><span id="total">0</span></td>
+                                <td><input type="text" name="total" id="total" placeholder="0" readonly></td>
                             </tr>
                             <tr>
                                 <td colspan="3" align="right">Biaya Tambahan</td>
