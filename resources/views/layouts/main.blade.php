@@ -24,7 +24,9 @@
   </title>
   {{-- Bootstrap --}}
   <link rel="stylesheet" href="{{ asset('assets') }}/bootstrap/css/bootstrap.min.css">
+  {{-- datatables css --}}
   <link rel="stylesheet" href="{{ asset('assets') }}/datatable/datatables.min.css">
+  <link rel="stylesheet" href="{{ asset('assets') }}/datatable/dataTables.bootstrap4.css">
   {{-- <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css"> --}}
   <!-- Favicon -->
   <link href="{{ asset('assets') }}/img/brand/logojidan.jpg" rel="icon" type="image/png">
@@ -75,6 +77,7 @@
   <!--   Core   -->
   <script src="{{ asset('assets') }}/js/plugins/jquery/dist/jquery.min.js"></script>
   <script src="{{  asset('assets')  }}/js/plugins/jquery/dist/jquery.dataTables.js"></script>
+  <script src="{{  asset('assets')  }}/js/plugins/jquery/dist/dataTables.bootstrap4.js"></script>
   <script src="{{ asset('assets') }}/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <!--   Optional JS   -->
   <script src="{{ asset('assets') }}/js/plugins/chart.js/dist/Chart.min.js"></script>

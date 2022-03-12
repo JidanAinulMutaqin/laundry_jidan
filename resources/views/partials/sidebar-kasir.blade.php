@@ -90,17 +90,17 @@
         <!-- Navigation -->
         <ul class="navbar-nav">
           <li class="nav-item ">
-            <a class="nav-link {{ Request::is('dashboard') ? 'active' : '' }} " href="/dashboard">
+            <a class="nav-link {{ Request::is('dashboard') ? 'active' : '' }} " href="/k/dashboard">
               <i class="ni ni-tv-2 text-primary"></i> Dashboard
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link {{ Request::is('transaksi') ? 'active' : '' }} " href="/transaksi">
+            <a class="nav-link {{ Request::is('transaksi') ? 'active' : '' }} " href="/k/transaksi">
               <i class="ni ni-bag-17 text-success"></i> Transaksi
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link {{ Request::is('laporan') ? 'active' : '' }} " href="/laporan">
+            <a class="nav-link {{ Request::is('laporan') ? 'active' : '' }} " href="/k/laporan">
               <i class="ni ni-app text-danger"></i> Laporan
             </a>
           </li>

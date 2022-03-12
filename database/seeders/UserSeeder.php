@@ -31,7 +31,7 @@ class UserSeeder extends Seeder
                 'username' => 'owner1',
                 'email' => 'owner@gmail.com',
                 'email_verified_at' => now(),
-                'password' => bcrypt('a'),
+                'password' => bcrypt('o'),
                 'remember_token' => Str::random(10),
                 'id_outlet' => 1,
                 'role' => 'owner'
@@ -41,7 +41,7 @@ class UserSeeder extends Seeder
                 'username' => 'kasir1',
                 'email' => 'kasir@gmail.com',
                 'email_verified_at' => now(),
-                'password' => bcrypt('a'),
+                'password' => bcrypt('k'),
                 'remember_token' => Str::random(10),
                 'id_outlet' => 1,
                 'role' => 'kasir'

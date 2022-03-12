@@ -1,7 +1,7 @@
 <!-- Button trigger modal -->
-<button type="button" class="badge bg-warning border-0" data-toggle="modal"
+<button type="button" class="badge bg-success border-0" data-toggle="modal"
     data-target="#editpaketModal{{ $p->id }}">
-    <i class="ni ni-bold-up"></i>
+    <i class="ni ni-ruler-pencil"></i>
 </button>
 
 <!-- Modal Edit -->

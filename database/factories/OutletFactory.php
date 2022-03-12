@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Faker\Generator as Faker;
 
 class OutletFactory extends Factory
 {
@@ -14,7 +15,9 @@ class OutletFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'nama_outlet' => $this->faker->company(),
+            'alamat' => $this->faker->address(),
+            'telepon' => $this->faker->phoneNumber()
         ];
     }
 }

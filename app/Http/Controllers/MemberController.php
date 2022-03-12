@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Member;
 use Illuminate\Http\Request;
+use App\Exports\MemberExport;
+use App\Imports\MemberImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class MemberController extends Controller
 {
@@ -104,5 +107,27 @@ class MemberController extends Controller
         $validatedData = Member::find($id);
         $validatedData->delete();
         return redirect(request()->segment(1).'/member');
+    }
+
+    public function exportMember()
+    {
+        return Excel::download(new MemberExport, 'member.xlsx');
+    }
+
+    public function import(Request $request)
+    {
+        $request->validate([
+            'fileMember' => 'file|required|mimes:xlsx',
+        ]);
+
+        if ($request) {
+            Excel::import(new MemberImport, $request->file('fileMember'));
+        } else {
+            return back()->withErrors([
+                'fileMember' => 'file belum terisi',
+            ]);
+        }
+
+        return redirect(request()->segment(1).'/member')->with('success', 'Data berhasil diimport!');
     }
 }

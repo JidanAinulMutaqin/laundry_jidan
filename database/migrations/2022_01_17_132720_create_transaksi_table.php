@@ -15,9 +15,9 @@ class CreateTransaksiTable extends Migration
     {
         Schema::create('transaksi', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_outlet')->constrained('outlet');
-            $table->foreignId('id_member')->constrained('member');
-            $table->foreignId('id_user')->constrained('users');
+            $table->foreignId('id_outlet')->constrained('outlet')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('id_member')->constrained('member')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('id_user')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
             $table->char('kode_invoice', 100);
             $table->dateTime('tgl');
             $table->dateTime('deadline');

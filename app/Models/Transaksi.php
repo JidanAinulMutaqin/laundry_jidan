@@ -16,4 +16,9 @@ class Transaksi extends Model
     {
         return $this->belongsTo(Outlet::class);
     }
+
+    public function member()
+    {
+        return $this->belongsTo(Member::class, 'id_member');
+    }
 }

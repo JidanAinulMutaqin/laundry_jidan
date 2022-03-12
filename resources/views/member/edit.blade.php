@@ -1,6 +1,6 @@
 <!-- Button trigger modal -->
-<button type="button" class="badge bg-warning border-0" data-toggle="modal" data-target="#editmemberModal{{ $m->id }}">
-    <i class="ni ni-bold-up"></i>
+<button type="button" class="badge bg-success border-0" data-toggle="modal" data-target="#editmemberModal{{ $m->id }}">
+    <i class="ni ni-ruler-pencil"></i>
 </button>
 
 <!-- Modal Edit -->

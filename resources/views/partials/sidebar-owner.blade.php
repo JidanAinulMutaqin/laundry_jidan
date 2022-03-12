@@ -90,12 +90,12 @@
         <!-- Navigation -->
         <ul class="navbar-nav">
           <li class="nav-item ">
-            <a class="nav-link {{ Request::is('dashboard') ? 'active' : '' }} " href="/dashboard">
+            <a class="nav-link {{ Request::is('o/dashboard*') ? 'active' : '' }} " href="/o/dashboard">
               <i class="ni ni-tv-2 text-primary"></i> Dashboard
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link {{ Request::is('laporan') ? 'active' : '' }} " href="/laporan">
+            <a class="nav-link {{ Request::is('o/laporan*') ? 'active' : '' }} " href="/o/laporan">
               <i class="ni ni-bag-17 text-success"></i> Outlet
             </a>
           </li>

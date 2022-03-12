@@ -23,6 +23,8 @@ class TransaksiController extends Controller
         //     'member' => Member::all(),
         // ]);
 
+        $data ['detail_transaksi'] = DetailTransaksi::all();
+        $data ['transaksi'] = Transaksi::all();
         $data ['member'] = Member::get();
         $data ['paket'] = Paket::where('id_outlet',auth()->user()->id_outlet)->get();
         return view('transaksi.index',$data);
@@ -124,7 +126,7 @@ class TransaksiController extends Controller
     private function generateKodeInvoice(){
         $last = Transaksi::orderBy('id','desc')->first();
         $last = ($last == null?1:$last->id+1);
-        $kode = sprintf('TRS'.date('Ymd').'%06d',$last);
+        $kode = sprintf('LJTRS'.date('Ymd').'%06d',$last);
         return $kode;
     }
 }

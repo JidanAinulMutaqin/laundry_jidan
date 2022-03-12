@@ -44,9 +44,9 @@
         <form method="POST" action="{{ url(request()->segment(1).'/transaksi') }}">
             @csrf
             @include('transaksi.form')
-            @include('transaksi.data')
             <input type="hidden" name="id_member" id="id_member">
         </form>
+            @include('transaksi.data')
         </div>
       </div>
     </div>
@@ -119,9 +119,10 @@ function pilihPaket(x){
     if(tbody == 'Belum ada data') $('#tblTransaksi tbody tr').remove();
     $('#tblTransaksi tbody').append(data);
     subtotal += Number(harga)
-    total = subtotal - Number($('#diskon').val()) + Number($('#pajak-harga').val())
+    total = subtotal - Number($('#diskon').val()) + Number($('#pajak-persen').val())
     $('#subtotal').text(subtotal)
     $('#total').text(total)
+
   }
 //
 
@@ -135,7 +136,7 @@ function hitungTotalAkhir(a){
   let pajak = Number($('#pajak-persen').val())/100*subtotal
   total = subtotal - Number($('#diskon').val()) + Number($('#biaya_tambahan').val()) + pajak;
   $(a).closest('tr').find('.subTotal').text(count)
-  $('#pajak-harga').text(pajak)
+//   $('#pajak-harga').text(pajak)
   $('#subtotal').text(subtotal)
   $('#total').text(total)
 }

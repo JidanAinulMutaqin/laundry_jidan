@@ -90,33 +90,48 @@
         <!-- Navigation -->
         <ul class="navbar-nav">
           <li class="nav-item ">
-            <a class="nav-link {{ Request::is('dashboard') ? 'active' : '' }} " href="dashboard">
+            <a class="nav-link {{ Request::is('a/dashboard*') ? 'active' : '' }} " href="/a/dashboard">
               <i class="ni ni-tv-2 text-primary"></i> Dashboard
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link {{ Request::is('outlet') ? 'active' : '' }} " href="outlet">
+            <a class="nav-link {{ Request::is('a/outlet*') ? 'active' : '' }} " href="/a/outlet">
               <i class="ni ni-building text-success"></i> Outlet
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link {{ Request::is('paket') ? 'active' : '' }} " href="paket">
+            <a class="nav-link {{ Request::is('a/paket*') ? 'active' : '' }} " href="/a/paket">
               <i class="ni ni-app text-danger"></i> Paket
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link {{ Request::is('member') ? 'active' : '' }} " href="member">
+            <a class="nav-link {{ Request::is('a/member*') ? 'active' : '' }} " href="/a/member">
               <i class="ni ni-circle-08 text-warning"></i> Member
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link {{ Request::is('user') ? 'active' : '' }} " href="user">
+            <a class="nav-link {{ Request::is('a/user*') ? 'active' : '' }} " href="/a/user">
               <i class="ni ni-single-02 text-primary"></i> User
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link {{ Request::is('transaksi') ? 'active' : '' }} " href="transaksi">
-              <i class="ni ni-money-coins text-warning"></i> Transaksi
+            <a class="nav-link {{ Request::is('a/transaksi*') ? 'active' : '' }} " href="/a/transaksi">
+              <i class="ni ni-money-coins" style="color: teal"></i> Transaksi
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link {{ Request::is('a/laporan*') ? 'active' : '' }} " href="/a/laporan">
+              <i class="ni ni-badge" style="color: lightseagreen"></i> Laporan
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link {{ Request::is('a/inventaris*') ? 'active' : '' }} " href="/a/inventaris">
+              <i class="ni ni-box-2" style="color: khaki"></i> Inventaris
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link {{ Request::is('a/data_karyawan*') ? 'active' : '' }} " href="/a/data_karyawan">
+              <i class="ni ni-hat-3" style="color: darksalmon"></i> Simulasi
             </a>
           </li>
         </ul>

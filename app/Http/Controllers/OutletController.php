@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Outlet;
 use Illuminate\Http\Request;
+use App\Exports\OutletExport;
+use App\Imports\OutletImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class OutletController extends Controller
 {
@@ -104,5 +107,27 @@ class OutletController extends Controller
         $validatedData = Outlet::find($id);
         $validatedData->delete();
         return redirect(request()->segment(1).'/outlet');
+    }
+
+    public function exportOutlet()
+    {
+        return Excel::download(new OutletExport, 'outlet.xlsx');
+    }
+
+    public function import(Request $request) {
+        $request->validate([
+            'file2' => 'file|required|mimes:xlsx',
+        ]);
+
+        if ($request) {
+            Excel::import(new OutletImport, $request->file('file2'));
+        } else {
+            return back()->withErrors([
+                'file2' => 'file belum terisi',
+            ]);
+        }
+
+        // return redirect(request()->segment(1).'/paket')->route('paket.index')->with('success', 'Data berhasil diimport!');
+        return redirect(request()->segment(1).'/outlet')->with('success', 'Data berhasil diimport!');
     }
 }

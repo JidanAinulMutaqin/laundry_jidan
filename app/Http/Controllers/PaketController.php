@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Paket;
 use App\Models\Outlet;
 use Illuminate\Http\Request;
+use App\Exports\PaketExport;
+use App\Imports\PaketImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PaketController extends Controller
 {
@@ -107,5 +110,27 @@ class PaketController extends Controller
         $validatedData = Paket::find($id);
         $validatedData->delete();
         return redirect(request()->segment(1).'/paket');
+    }
+
+    public function exportData()
+    {
+        return Excel::download(new PaketExport, 'paket.xlsx');
+    }
+
+    public function import(Request $request) {
+        $request->validate([
+            'file2' => 'file|required|mimes:xlsx',
+        ]);
+
+        if ($request) {
+            Excel::import(new PaketImport, $request->file('file2'));
+        } else {
+            return back()->withErrors([
+                'file2' => 'file belum terisi',
+            ]);
+        }
+
+        return redirect(request()->segment(1).'/paket')->with('success', 'Data berhasil diimport!');
+        // return redirect()->route('paket.index')->with('success', 'Data berhasil diimport!');
     }
 }

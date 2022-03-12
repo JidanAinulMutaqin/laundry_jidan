@@ -105,11 +105,12 @@
                             </tr>
                             <tr>
                                 <td colspan="3" align="right">Diskon</td>
-                                <td><input type="number" value="0" id="diskon" name="diskon" style="width:140px"></td>
+                                <td><input type="number" value="0" id="diskon" name="diskon" class="diskon" style="width:140px"></td>
                             </tr>
                             <tr>
-                                <td colspan="3" align="right">Pajak <input type="number" value="0" min="0" class="qty" name="pajak" id="pajak-persen" size="2" style="width:40px"> %</td>
-                                <td><span id="pajak-harga">0</span></td>
+                                <td colspan="3" align="right">Pajak </td>
+                                <td><input type="number" value="0" min="0" class="qty" name="pajak" id="pajak-persen" size="2" style="width:40px"> % </td>
+                                {{-- <span id="pajak-harga"></span> --}}
                             </tr>
                             <tr style="background:RoyalBlue;color:whitesmoke;font-weight:bold;font-size:1em">
                                 <td colspan="3" align="right">Total Bayar Akhir</td>

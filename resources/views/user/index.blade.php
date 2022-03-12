@@ -33,13 +33,14 @@
           <h3 class="mb-0">Tabel Data Member</h3>
         </div>
         <div class="table-responsive">
-          <table id="tb-user" class="table align-items-center table-flush">
+          <table id="tb-user" class="table align-items-center table-borderless">
             <thead class="thead-light">
               <tr>
                 <th scope="col">No</th>
                 <th scope="col">Nama</th>
                 <th scope="col">Username</th>
                 <th scope="col">Email</th>
+                <th scope="col">Outlet</th>
                 <th scope="col">Role</th>
                 <th scope="col">Action</th>
               </tr>
@@ -51,11 +52,12 @@
                     <td>{{ $u->name }}</td>
                     <td>{{ $u->username }}</td>
                     <td>{{ $u->email }}</td>
+                    <td>{{ $u->outlet->nama_outlet }}</td>
                     <td>{{ $u->role }}</td>
                     <td>
 
-                        <button type="button" class="badge bg-warning border-0" data-toggle="modal" data-target="#edituserModal{{ $u->id }}">
-                            <i class="ni ni-bold-up"></i>
+                        <button type="button" class="badge bg-success border-0" data-toggle="modal" data-target="#edituserModal{{ $u->id }}">
+                            <i class="ni ni-ruler-pencil"></i>
                         </button>
 
                         <form action="/{{ request()->segment(1)}}/user/{{ $u->id }}" method="post" class="d-inline">
