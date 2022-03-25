@@ -130,8 +130,18 @@
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link {{ Request::is('a/data_karyawan*') ? 'active' : '' }} " href="/a/data_karyawan">
-              <i class="ni ni-hat-3" style="color: darksalmon"></i> Simulasi
+            <a class="nav-link {{ Request::is('a/simulasi*') ? 'active' : '' }} " href="/a/simulasi">
+              <i class="ni ni-hat-3" style="color: darksalmon"></i> Simulasi Transaksi
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link {{ Request::is('a/penjemputan*') ? 'active' : '' }} " href="/a/penjemputan">
+              <i class="ni ni-send" style="color: red"></i> Penjemputan Laundry
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link {{ Request::is('a/PenggunaanBarang*') ? 'active' : '' }} " href="/a/PenggunaanBarang">
+              <i class="ni ni-send" style="color: red"></i> Penggunaan Barang
             </a>
           </li>
         </ul>

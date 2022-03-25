@@ -5,17 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Member extends Model
+class Penjemputan extends Model
 {
     use HasFactory;
 
     protected $primarykey = 'id';
     public $incrementing = true;
-    protected $table = 'member';
+    protected $table = 'penjemputan';
     protected $guarded = ['id'];
 
-    public function penjemputan()
+    public function member()
     {
-        return $this->hasMany(Penjemputan::class, 'id_penjemputan');
+        return $this->belongsTo(Member::class, 'id_member');
     }
+
 }

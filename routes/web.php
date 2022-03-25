@@ -10,7 +10,9 @@ use App\Http\Controllers\OutletController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\SimulasiController;
 use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\PenjemputanController;
 use App\Http\Controllers\BarangInventarisController;
+use App\Http\Controllers\PenggunaanBarangController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,10 +53,23 @@ Route::group(['prefix' => 'a', 'middleware' => ['isAdmin','auth']],function(){
     Route::post('member/import', [MemberController::class, 'import'])->name('import-member');
 
     Route::resource('/user', UserController::class);
+
     Route::resource('/transaksi', TransaksiController::class);
+    Route::get('{id}/faktur', [TransaksiController::class, 'fakturPDF'])->name('faktur');
+
     Route::resource('/laporan', LaporanController::class);
     Route::resource('/inventaris', BarangInventarisController::class);
-    Route::get('/data_karyawan', [SimulasiController::class, 'index']);
+    Route::get('/simulasi', [SimulasiController::class, 'index']);
+
+    Route::resource('/penjemputan', PenjemputanController::class);
+    Route::get('export/penjemputan', [PenjemputanController::class, 'exportPenjemputan'])->name('export-penjemputan');
+    Route::post('penjemputan/import', [PenjemputanController::class, 'importPenjemputan'])->name('import-penjemputan');
+    Route::post('/status', [PenjemputanController::class ,'status'])->name('status');
+
+    Route::resource('/PenggunaanBarang', PenggunaanBarangController::class);
+    Route::post('/status', [PenggunaanBarangController::class ,'status'])->name('status');
+    Route::get('export/PenggunaanBarang', [PenggunaanBarangController::class, 'exportPenggunaanBarang'])->name('export-penggunaanBarang');
+    Route::post('outlet/PenggunaanBarang', [PenggunaanBarangController::class, 'import'])->name('import-outlet');
 });
 
 Route::group(['prefix' => 'k', 'middleware' => ['isKasir','auth']],function(){

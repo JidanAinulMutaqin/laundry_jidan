@@ -79,6 +79,7 @@
   <script src="{{  asset('assets')  }}/js/plugins/jquery/dist/jquery.dataTables.js"></script>
   <script src="{{  asset('assets')  }}/js/plugins/jquery/dist/dataTables.bootstrap4.js"></script>
   <script src="{{ asset('assets') }}/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="{{ asset('assets') }}/js/sweetalert.min.js"></script>
   <!--   Optional JS   -->
   <script src="{{ asset('assets') }}/js/plugins/chart.js/dist/Chart.min.js"></script>
   <script src="{{ asset('assets') }}/js/plugins/chart.js/dist/Chart.extension.js"></script>

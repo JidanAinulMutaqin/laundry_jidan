@@ -8,6 +8,8 @@ use App\Models\Transaksi;
 use App\Models\DetailTransaksi;
 use App\Http\Requests\StoreTransaksiRequest;
 use Illuminate\Http\Request;
+use PDF;
+use Barryvdh\DomPDF\PDF as DomPDFPDF;
 
 class TransaksiController extends Controller
 {
@@ -129,4 +131,14 @@ class TransaksiController extends Controller
         $kode = sprintf('LJTRS'.date('Ymd').'%06d',$last);
         return $kode;
     }
+
+       // export PDF
+     public function fakturPDF($id) {
+
+        $data ['detail_transaksi'] = DetailTransaksi::where('id_transaksi', $id)->get();
+
+        $pdf = PDF::loadView('transaksi.faktur',  $data);
+        return $pdf->stream();
+    }
+
 }

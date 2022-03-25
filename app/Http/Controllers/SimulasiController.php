@@ -13,7 +13,7 @@ class SimulasiController extends Controller
      */
     public function index()
     {
-        return view('simulasi.test2');
+        return view('simulasi.tomandiri');
     }
 
     /**
